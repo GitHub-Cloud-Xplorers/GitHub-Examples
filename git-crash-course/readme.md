@@ -34,12 +34,36 @@ cd GitHub-Examples
 > Require a Personal Access Token (PAT)
 when cloning from local development
 
-
 1. Generate a PAT first:
 https://github.com/settings/tokens?type=beta
 
 2. Set the PAT permissions as follows (expiry time, permissions etc)
 3. Use PAT as the pasword when you login
+
+### SSH 
+Can clone because it is a public repository, else credentials are required if private repository
+
+```ssh
+git clone git@github.com:Ben-Tay/GitHub-Examples.git
+```
+> Generating an ssh private/public key for pushing
+```s
+ssh-keygen -t rsa
+
+## Save key in a file (use full path)
+github-alt_id_rsa.pub
+
+## Enter passphrase (for more security but optional)
+```
+### Cat the file path to the public key and add it to our github account
+https://github.com/settings/keys
+
+> Add private key directory to ssh agent if not recognized
+```
+ssh-add privatekeypath
+# Debug if auth works
+ssh-T git@github.com 
+```
 
 ## Commits
 Commit code using git commit which will open up the commit edit message in the editor of choice 
