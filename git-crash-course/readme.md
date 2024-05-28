@@ -18,6 +18,7 @@ git commit -m "add readme file"
 ```
 
 ## Cloning 
+<<<<<<< HEAD
 3 ways to clone: HTTPs, SSH, Github CLI
 
 ```sh
@@ -68,6 +69,60 @@ $ git config --global user.email johndoe@example.com
 ## Stashing
 
 
+3 ways to clone: HTTPs, SSH, Github CLI
+
+
+```sh
+mkdir /workspace/tmp
+cd /workspace/tmp
+```
+
+### HTTPS (Public no need credentials to clone)
+```sh
+git clone https://github.com/Ben-Tay/GitHub-Examples.git
+cd GitHub-Examples
+```
+
+## Commits
+Commit code using git commit which will open up the commit edit message in the editor of choice 
+
+```sh
+git commit 
+
+# Make commit without having to open editor
+git commit -m "Add another exclamation"
+
+```
+Set the global commit editor (typically required for local machine for commit)
+
+## Gitconfig file
+
+Gitconfig file stores your global configuration for git such as email, name, editor and more 
+
+Showing the contents of our .gitconfig file
+```
+git config --global core.editor emacs
+git config --list --show-origin
+```
+
+When you first install Git on a machine you are suppose to set up your name and email
+
+```sh
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
+
+## Branches
+
+
+## Remotes
+
+
+## Stashing
+
+
+>>>>>>> 610eab40b722b46d4166d0ad4c2b19dc52784f77
 ## Merging
 
 
@@ -105,6 +160,7 @@ When we want to push a repo to our remote origin (Github)
 ```
 git push 
 ```
+<<<<<<< HEAD
 
 ## Personal Access Token 
 When we want to clone from local development,
@@ -113,3 +169,5 @@ we require a personal access token for password
 ```
 1. Generate a PAT first by going to settings > developer settings 
 2. Set the PAT permissions as follows (expiry time, permissions etc)
+=======
+>>>>>>> 610eab40b722b46d4166d0ad4c2b19dc52784f77
