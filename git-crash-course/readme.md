@@ -18,9 +18,7 @@ git commit -m "add readme file"
 ```
 
 ## Cloning 
-
 3 ways to clone: HTTPs, SSH, Github CLI
-
 
 ```sh
 mkdir /workspace/tmp
@@ -41,7 +39,6 @@ git commit
 
 # Make commit without having to open editor
 git commit -m "Add another exclamation"
-
 ```
 Set the global commit editor (typically required for local machine for commit)
 
@@ -61,7 +58,6 @@ When you first install Git on a machine you are suppose to set up your name and 
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 ```
-
 
 ## Branches
 
@@ -109,3 +105,11 @@ When we want to push a repo to our remote origin (Github)
 ```
 git push 
 ```
+
+## Personal Access Token 
+When we want to clone from local development,
+we require a personal access token for password
+
+```
+1. Generate a PAT first by going to settings > developer settings 
+2. Set the PAT permissions as follows (expiry time, permissions etc)
