@@ -18,7 +18,6 @@ git commit -m "add readme file"
 ```
 
 ## Cloning 
-<<<<<<< HEAD
 3 ways to clone: HTTPs, SSH, Github CLI
 
 ```sh
@@ -31,6 +30,16 @@ cd /workspace/tmp
 git clone https://github.com/Ben-Tay/GitHub-Examples.git
 cd GitHub-Examples
 ```
+ 
+> Require a Personal Access Token (PAT)
+when cloning from local development
+
+
+1. Generate a PAT first:
+https://github.com/settings/tokens?type=beta
+
+2. Set the PAT permissions as follows (expiry time, permissions etc)
+3. Use PAT as the pasword when you login
 
 ## Commits
 Commit code using git commit which will open up the commit edit message in the editor of choice 
@@ -122,7 +131,6 @@ $ git config --global user.email johndoe@example.com
 ## Stashing
 
 
->>>>>>> 610eab40b722b46d4166d0ad4c2b19dc52784f77
 ## Merging
 
 
@@ -160,14 +168,6 @@ When we want to push a repo to our remote origin (Github)
 ```
 git push 
 ```
-<<<<<<< HEAD
 
-## Personal Access Token 
-When we want to clone from local development,
-we require a personal access token for password
 
-```
-1. Generate a PAT first by going to settings > developer settings 
-2. Set the PAT permissions as follows (expiry time, permissions etc)
-=======
->>>>>>> 610eab40b722b46d4166d0ad4c2b19dc52784f77
+
