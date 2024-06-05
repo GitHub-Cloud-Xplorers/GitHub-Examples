@@ -41,21 +41,22 @@ https://github.com/settings/tokens?type=beta
 3. Use PAT as the pasword when you login
 
 ### SSH 
-Can clone because it is a public repository, else credentials are required if private repository
+Cloning is possible if it is a public repository, else credentials are required 
 
 ```ssh
 git clone git@github.com:Ben-Tay/GitHub-Examples.git
 ```
-> Generating an ssh private/public key for pushing
+> Generating an ssh private/public key for pushing (Linux command)
 ```s
 ssh-keygen -t rsa
-
-## Save key in a file (use full path)
+## Save private key in a file (use full path)
 github-alt_id_rsa.pub
 
 ## Enter passphrase (for more security but optional)
+
+## Public key will be auto generated 
 ```
-### Cat the file path to the public key and add it to our github account
+### Cat the file path to the public key (in linux) and add its contents to our github account
 https://github.com/settings/keys
 
 > Add private key directory to ssh agent if not recognized
