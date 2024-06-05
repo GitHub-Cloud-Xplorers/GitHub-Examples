@@ -59,11 +59,26 @@ github-alt_id_rsa.pub
 ### Cat the file path to the public key (in linux) and add its contents to our github account
 https://github.com/settings/keys
 
-> Add private key directory to ssh agent if not recognized
+> For WSL users and if create non default key might need to add it 
 ```
 ssh-add privatekeypath
-# Debug if auth works
+eval `ssh-agent`
+
+# Debug if authentication connection works (if ssh-add doesnt work)
 ssh-T git@github.com 
+```
+
+### Github CLI
+Install the CLI 
+
+eg: Linux(Ubuntu)
+https://cli.github.com/
+
+```
+gh auth login
+gh repo clone Ben-Tay/GitHub-Examples
+
+Can Choose to clone via ssh/https
 ```
 
 ## Commits
@@ -95,7 +110,22 @@ $ git config --global user.email johndoe@example.com
 ```
 
 ## Branches
+List of branches
+```
+git branch 
+```
 
+Create a new branch
+
+```
+git branch branch-name
+```
+
+Checkout the branch (Switches to that branch)
+
+```
+git checkout dev
+```
 
 ## Remotes
 
