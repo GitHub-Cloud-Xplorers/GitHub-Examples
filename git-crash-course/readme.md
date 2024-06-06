@@ -81,17 +81,35 @@ gh repo clone Ben-Tay/GitHub-Examples
 Can Choose to clone via ssh/https
 ```
 
-## Commits
-Commit code using git commit which will open up the commit edit message in the editor of choice 
+## Commits (only the changes)
+> Contains additions/modifications/deletions of files and its file contents but not the whole files themselves (reduces the file size)
 
+> Commits represent incremental changes to a codebase represented with a git tree (graph at specific time) tagged with a SHA Hash ID used to checkout specific commits
 ```sh
-git commit 
+git commit # commits without message will be opened in text editor of choice
 
-# Make commit without having to open editor
-git commit -m "Add another exclamation"
+# Commits staged changes with a message
+git commit -m "Commit message"
+
+# Automatically stages all tracked changes before the commit 
+git commit -a -m "Commit message"
+
+# Modifies most recent commit that nis not yet pushed
+git commit --amend
+
+# Empty commit (for placeholder)
+git commit -m "Initial commit" --allow-empty
+
+# Commits with specified author
+git commit -m "Message" --author="Author Name <email@example.com>"
+
+# Checkout to specified commit based on SHA Hash
+git checkout SHA-HASH
 ```
 Set the global commit editor (typically required for local machine for commit)
 
+Components of a Git Commit
+> Hash (SHA-1), Author Info, Message, Timestamp of commit, Parent Commit (Hashes) and Snapshot of content (staged changes snapshot)
 ## Gitconfig file
 
 Gitconfig file stores your global configuration for git such as email, name, editor and more 
@@ -164,9 +182,10 @@ git merge main
 When we want to stage changes that will be included in the committed, 
 We can use the . to add all possible files
 
-```
+```sh
 git add Readme.md
 git add .
+git rm my-other file # remove a specific file
 ``` 
 ## Reset
 Reset allows you to move Staged changes to be unstaged
