@@ -34,12 +34,52 @@ cd GitHub-Examples
 > Require a Personal Access Token (PAT)
 when cloning from local development
 
-
 1. Generate a PAT first:
 https://github.com/settings/tokens?type=beta
 
 2. Set the PAT permissions as follows (expiry time, permissions etc)
 3. Use PAT as the pasword when you login
+
+### SSH 
+Cloning is possible if it is a public repository, else credentials are required 
+
+```ssh
+git clone git@github.com:Ben-Tay/GitHub-Examples.git
+```
+> Generating an ssh private/public key for pushing (Linux command)
+```s
+ssh-keygen -t rsa
+## Save private key in a file (use full path)
+github-alt_id_rsa.pub
+
+## Enter passphrase (for more security but optional)
+
+## Public key will be auto generated 
+```
+### Cat the file path to the public key (in linux) and add its contents to our github account
+https://github.com/settings/keys
+
+> For WSL users and if create non default key might need to add it 
+```
+ssh-add privatekeypath
+eval `ssh-agent`
+
+# Debug if authentication connection works (if ssh-add doesnt work)
+ssh-T git@github.com 
+```
+
+### Github CLI
+Install the CLI 
+
+eg: Linux(Ubuntu)
+https://cli.github.com/
+
+```
+gh auth login
+gh repo clone Ben-Tay/GitHub-Examples
+
+Can Choose to clone via ssh/https
+```
 
 ## Commits
 Commit code using git commit which will open up the commit edit message in the editor of choice 
@@ -70,26 +110,43 @@ $ git config --global user.email johndoe@example.com
 ```
 
 ## Branches
+List of branches
+```
+git branch 
+```
 
+Create a new branch
+
+```
+git branch branch-name
+```
+
+Checkout the branch (Switches to that branch)
+
+```
+git checkout dev
+```
+
+Pushing new branch to remote (needs to be done if remote does not have this branch yet)
+
+```
+git push -u origin dev
+
+## If done in forked repository, only affects fork, need to do pull request to upload to original repo
+```
 
 ## Remotes
 
 
-## Stashing
-
-
-3 ways to clone: HTTPs, SSH, Github CLI
-
-
-```sh
-mkdir /workspace/tmp
-cd /workspace/tmp
+## Stashing (Local development)
+When you wish to save your changes in a stash after adding (not directly committing)
 ```
-
-### HTTPS (Public no need credentials to clone)
-```sh
-git clone https://github.com/Ben-Tay/GitHub-Examples.git
-cd GitHub-Examples
+git add .
+git stash
+git stash list # check stash list
+git stash save my-name 
+git stash apply 
+git stash pop # remove from stash list
 ```
 
 ## Commits
