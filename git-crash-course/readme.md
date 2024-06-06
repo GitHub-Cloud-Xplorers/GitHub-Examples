@@ -138,8 +138,16 @@ git push -u origin dev
 ## Remotes
 
 
-## Stashing
-
+## Stashing (Local development)
+When you wish to save your changes in a stash after adding (not directly committing)
+```
+git add .
+git stash
+git stash list # check stash list
+git stash save my-name 
+git stash apply 
+git stash pop # remove from stash list
+```
 
 ## Commits
 Commit code using git commit which will open up the commit edit message in the editor of choice 
