@@ -127,25 +127,19 @@ Checkout the branch (Switches to that branch)
 git checkout dev
 ```
 
+Pushing new branch to remote (needs to be done if remote does not have this branch yet)
+
+```
+git push -u origin dev
+
+## If done in forked repository, only affects fork, need to do pull request to upload to original repo
+```
+
 ## Remotes
 
 
 ## Stashing
 
-
-3 ways to clone: HTTPs, SSH, Github CLI
-
-
-```sh
-mkdir /workspace/tmp
-cd /workspace/tmp
-```
-
-### HTTPS (Public no need credentials to clone)
-```sh
-git clone https://github.com/Ben-Tay/GitHub-Examples.git
-cd GitHub-Examples
-```
 
 ## Commits
 Commit code using git commit which will open up the commit edit message in the editor of choice 
