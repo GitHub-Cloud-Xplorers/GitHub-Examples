@@ -136,7 +136,12 @@ git push -u origin dev
 ```
 
 ## Remotes
+We can add remote but often you will just add remote via upstream when adding a new branch
 
+```sh
+git remote add ...
+git branch -u origin new-feature
+```
 
 ## Stashing (Local development)
 When you wish to save your changes in a stash after adding (not directly committing)
@@ -149,48 +154,11 @@ git stash apply
 git stash pop # remove from stash list
 ```
 
-## Commits
-Commit code using git commit which will open up the commit edit message in the editor of choice 
-
-```sh
-git commit 
-
-# Make commit without having to open editor
-git commit -m "Add another exclamation"
-
-```
-Set the global commit editor (typically required for local machine for commit)
-
-## Gitconfig file
-
-Gitconfig file stores your global configuration for git such as email, name, editor and more 
-
-Showing the contents of our .gitconfig file
-```
-git config --global core.editor emacs
-git config --list --show-origin
-```
-
-When you first install Git on a machine you are suppose to set up your name and email
-
-```sh
-$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com
-```
-
-
-## Branches
-
-
-## Remotes
-
-
-## Stashing
-
-
 ## Merging
-
-
+```
+git checkout dev
+git merge main
+```
 
 ## Add 
 When we want to stage changes that will be included in the committed, 
