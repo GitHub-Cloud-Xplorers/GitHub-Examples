@@ -94,7 +94,7 @@ git commit -m "Commit message"
 # Automatically stages all tracked changes before the commit 
 git commit -a -m "Commit message"
 
-# Modifies most recent commit that nis not yet pushed
+# Modifies most recent commit that is not yet pushed
 git commit --amend
 
 # Empty commit (for placeholder)
@@ -127,30 +127,40 @@ $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 ```
 
-## Branches
-List of branches
-```
-git branch 
+## Branches (Main vs Production)
+> It is basically a divergence of the state of the repository, Can be seen as  copies at a point in time modified to be different
+
+> Production: Push from main using some CI/CD tool. CI/CD systems gets triggered when tag is applied
+
+Branches can be used for multiple purposes:
+> Environments - staging/development/production
+
+> Specific branches by developer name/bugs/features
+
+```sh
+# Lists all local branches
+git branch
+# Lists both remote & local branches
+git branch -a
+# creates a new branch
+git branch [branchname]
+# switch to a new branch
+git checkout [branchname]
+# creates and switches to that branch
+git checkout -b [branchname]
+# deletes a branch
+git branch -d [branchname]
+# renames a branch
+git branch -m [oldname] [newname]
 ```
 
-Create a new branch
+Common workflow: push feature branch upstream to remote origin (if branch not yet in remote)
+```sh
+git add .
+git commit -m 'mychanges'
+git push -u origin [branchname]
 
-```
-git branch branch-name
-```
-
-Checkout the branch (Switches to that branch)
-
-```
-git checkout dev
-```
-
-Pushing new branch to remote (needs to be done if remote does not have this branch yet)
-
-```
-git push -u origin dev
-
-## If done in forked repository, only affects fork, need to do pull request to upload to original repo
+# If done in forked repository, only affects fork, need to do pull request to upload to original repo
 ```
 
 ## Remotes
