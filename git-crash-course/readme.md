@@ -68,17 +68,28 @@ eval `ssh-agent`
 ssh-T git@github.com 
 ```
 
-### Github CLI
-Install the CLI 
+## Github CLI
+> Command Line interface to interact with Github Account
+Allows performing common Github actions without leaving developer environment
 
-eg: Linux(Ubuntu)
-https://cli.github.com/
-
-```
+#### CLI commands 
+```sh
 gh auth login
-gh repo clone Ben-Tay/GitHub-Examples
+gh repo create github-examples --public
+gh issue create --title "Issue title" --body "Issue body"
+gh pr review --comment -b "interesting"
 
-Can Choose to clone via ssh/https
+# Can Choose to clone via ssh/https
+gh repo clone Ben-Tay/GitHub-Examples
+```
+#### Installation (CLI) installable on Windows/Linux/MacOs
+```sh
+# MacOs
+brew install gh
+# Install CLI for Codespaces via Features
+"features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+}
 ```
 
 ## Commits (only the changes)
@@ -154,7 +165,16 @@ git branch -d [branchname]
 git branch -m [oldname] [newname]
 ```
 
-Common workflow: push feature branch upstream to remote origin (if branch not yet in remote)
+## Github Workflow
+> Original Workflow
+1. Clone/pull  from develop branch into feature branches
+2. Any changes done in feature branches ready to be tested out will be merged back into develop branches 
+3. Develop branches ready for testing would be pushed into CI/CD pipeline environment into staging/release branches (aka Deploy)
+4. Test changes in production environment (deploy) and once changes are verified, merge them into the main/amaster branch
+5. Any issues that arise from merging into main will be pulled from master branch into hotfixes (to fix them and remerge in)
+> `NOTE THAT release branches are not common much these days, and people tend to push directly from development into master (production)`
+
+> Push feature branch upstream to remote origin (if branch not yet in remote)
 ```sh
 git add .
 git commit -m 'mychanges'
@@ -164,12 +184,42 @@ git push -u origin [branchname]
 ```
 
 ## Remotes
+> Represents a reference to the remote location where a copy of your repository is hosted
+
+> Can have multiple remote entries where `origin` is a remote name for a repo
+
+> Remote names can be referenced,
+remote stored in git/config file
+
 We can add remote but often you will just add remote via upstream when adding a new branch
 
+Remote Commands
 ```sh
-git remote add ...
+# Lists all remote repositories with their URLs
+git remote -v 
+# Add a remote
+git remote add [name] [URL]
+# Remove remote
+git remote remove [name]
+# Rename a remote branch
+git remote rename [old-name] [new-name]
+# Pushes a branch and its commit to the specific remote
+git push [remote-name] [branch]
+git push origin main 
+# Pulls updates from a remote branch
+git pull [remote-name] [branch]
+# Fetches updates without pulling
+git fetch [remote-name]
+```
+
+## Remote Upstream & Downstream
+Upstream  (Push request)
+> Push changes from local development into remote repository
+```
 git branch -u origin new-feature
 ```
+Downstream (Pull request)
+> Clones/pulls from other repository into remote 
 
 ## Stashing (Local development)
 When you wish to save your changes in a stash after adding (not directly committing)
