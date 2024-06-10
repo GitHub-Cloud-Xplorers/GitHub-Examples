@@ -72,12 +72,21 @@ ssh-T git@github.com
 > Command Line interface to interact with Github Account
 Allows performing common Github actions without leaving developer environment
 
-#### CLI commands 
+Documentation: https://cli.github.com/manual/
+#### Example CLI commands 
 ```sh
 gh auth login
 gh repo create github-examples --public
+gh repo set-default #selects default repo to use in the current directory
 gh issue create --title "Issue title" --body "Issue body"
 gh pr review --comment -b "interesting"
+gh label list
+gh label create bug --description "Something isn't working" --color E99695
+
+# Use generated PAT instead of default one in github
+export GH_TOKEN = "PAT_token link"
+ # Check if environment variable for token is set
+ env | grep GH_
 
 # Can Choose to clone via ssh/https
 gh repo clone Ben-Tay/GitHub-Examples
@@ -206,10 +215,10 @@ git remote rename [old-name] [new-name]
 # Pushes a branch and its commit to the specific remote
 git push [remote-name] [branch]
 git push origin main 
-# Pulls updates from a remote branch
+# Pulls updates from a remote branch (combination of git fetch + git merge)
 git pull [remote-name] [branch]
-# Fetches updates without pulling
-git fetch [remote-name]
+# Retrieves changes from remote into current local branch but does not merge it into local branch
+git fetch [remote-name] # Updates remote tracking branches in local development
 ```
 
 ## Remote Upstream & Downstream
@@ -233,6 +242,8 @@ git stash pop # remove from stash list
 ```
 
 ## Merging
+> Takes the changes from the specified branch into the current branch and merges it
+* Typically performed after a git fetch to integrate the fetched changes
 ```
 git checkout dev
 git merge main
@@ -267,10 +278,10 @@ git status
 `git log` will show recent commits to the git tree
 
 ## Push
-When we want to push a repo to our remote origin (Github)
-
+When we want to push a repo to our remote origin (Github) 
+> Makes our local changes available to others in the cloud
 ```
-git push 
+git push [remote-name]
 ```
 
 
